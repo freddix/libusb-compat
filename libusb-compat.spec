@@ -8,7 +8,6 @@ License:	LGPL
 Group:		Libraries
 Source0:	http://dowmloads.sourceforge.net/libusb/%{name}-%{version}.tar.bz2
 # Source0-md5:	2ca521fffadd0c28fdf174e6ec73865b
-Patch0:		%{name}-usbx.patch
 URL:		http://libusbx.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -31,7 +30,6 @@ incorporate libusb into applications.
 
 %prep
 %setup -q
-%patch0 -p0
 
 %build
 %{__libtoolize}
