@@ -2,17 +2,17 @@
 
 Summary:	Application access to USB devices
 Name:		libusb-compat
-Version:	0.1.4
-Release:	2
+Version:	0.1.5
+Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://dowmloads.sourceforge.net/libusb/%{name}-%{version}.tar.bz2
-# Source0-md5:	2ca521fffadd0c28fdf174e6ec73865b
-URL:		http://libusbx.org/
+Source0:	http://downloads.sourceforge.net/project/libusb/libusb-compat-0.1/libusb-compat-0.1.5/%{name}-%{version}.tar.bz2
+# Source0-md5:	2780b6a758a1e2c2943bdbf7faf740e4
+URL:		http://libusb.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
-BuildRequires:	libusbx-devel
+BuildRequires:	libusb-devel
 BuildRequires:	pkg-config
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -50,6 +50,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -66,7 +68,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/libusb-config
 %attr(755,root,root) %{_libdir}/libusb.so
-%{_libdir}/libusb.la
 %{_includedir}/usb.h
 %{_pkgconfigdir}/libusb.pc
 
